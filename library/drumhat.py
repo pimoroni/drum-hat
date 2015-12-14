@@ -18,6 +18,7 @@ LEDMAP = [
 ]
 
 _on_press = [None] * 8
+_on_release = [None] * 8
 
 def on_hit(channel, handler=None):
     global _on_presss
