@@ -4,12 +4,24 @@ import pygame
 import os
 import glob
 
-BANK = os.path.join(os.path.dirname(__file__), "drums")
+"""
+
+4 3 2
+5 7 1
+ 6 0
+
+"""
+
+BANK = os.path.join(os.path.dirname(__file__), "drums2")
 
 pygame.mixer.init(44100, -16, 1, 512)
 pygame.mixer.set_num_channels(16)
 
-samples = [pygame.mixer.Sound(f) for f in glob.glob(os.path.join(BANK, "*.wav"))]
+files = glob.glob(os.path.join(BANK, "*.wav"))
+files.sort()
+
+print(files)
+samples = [pygame.mixer.Sound(f) for f in files]
 
 dh = cap1xxx.Cap1188(
     i2c_addr=0x2c,
@@ -32,6 +44,7 @@ state = [True] * 8
 def handle_press(event):
     print(event.channel)
     samples[event.channel].play(loops=0)
+    print(files[event.channel])
     dh.set_led_state(ledmap[event.channel], True)
 
 def handle_release(event):
