@@ -3,8 +3,7 @@ import time
 
 dh = cap1xxx.Cap1188(
     i2c_addr=0x2c,
-    alert_pin=25,
-    reset_pin=21)
+    alert_pin=25)
 
 LEDMAP = [
     5,
