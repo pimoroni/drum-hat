@@ -43,6 +43,7 @@ def middle_pad():
 You can install Drum HAT manually like so:
 
 ```
+sudo apt-get install python-smbus
 git clone https://github.com/pimoroni/drum-hat
 cd drum-hat/library
 sudo python setup.py install
@@ -51,7 +52,10 @@ sudo python setup.py install
 Or, for Python 3:
 
 ```
+sudo apt-get install python3-smbus
 git clone https://github.com/pimoroni/drum-hat
 cd drum-hat/library
 sudo python3 setup.py install
 ```
+
+In both cases you will have to enable i2c in `raspi-config`.
