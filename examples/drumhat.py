@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import cap1xxx
 import time
 import pygame
