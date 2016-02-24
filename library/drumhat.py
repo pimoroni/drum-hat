@@ -21,6 +21,10 @@ _on_release = [None] * 8
 
 def on_hit(channel, handler=None):
     global _on_presss
+
+    if channel not in range(8):
+        raise TypeError("Invalid channel {}".format(channel))
+
     if handler is None:
         def decorate(handler):
             global _on_press
@@ -30,6 +34,10 @@ def on_hit(channel, handler=None):
 
 def on_release(channel, handler=None):
     global _on_release
+
+    if channel not in range(8):
+        raise TypeError("Invalid channel {}".format(channel))
+
     if handler is None:
         def decorate(handler):
             global _on_release
@@ -39,21 +47,27 @@ def on_release(channel, handler=None):
 
 def handle_press(event):
     global _on_press
+    #print("Hit on ch: {}".format(event.channel), event.channel in _on_press)
     dh.set_led_state(LEDMAP[event.channel], True)
-    if event.channel in _on_press and callable(_on_press[event.channel]):
-        _on_press[event.channel]
+    if callable(_on_press[event.channel]):
+        try:
+            _on_press[event.channel](event)
+        except TypeError:
+            _on_press[event.channel]()
 
 def handle_release(event):
     global _on_release
+    #print("Release on ch: {}".format(event.channel))
     dh.set_led_state(LEDMAP[event.channel], False)
-    if event.channel in _on_release and callable(_on_release[event.channel]):
-        _on_release[event.channel]
+    if callable(_on_release[event.channel]):
+        try:
+            _on_release[event.channel](event)
+        except TypeError:
+            _on_release[event.channel]()
 
 for x in range(8):
     dh.on(x,event='press',   handler=handle_press)
     dh.on(x,event='release', handler=handle_release)
 
-"""
-Unlink the LEDs since Drum HAT's LEDs don't match up with the channels
-"""
+"""Unlink the LEDs since Drum HAT's LEDs don't match up with the channels"""
 dh._write_byte(cap1xxx.R_LED_LINKING, 0b00000000)
