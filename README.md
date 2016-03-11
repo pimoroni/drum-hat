@@ -13,7 +13,7 @@ We've created a super-easy installation script that will install all pre-requisi
 In the new terminal window type the following and follow the instructions:
 
 ```bash
-curl -sSL get.pimoroni.com/drumhat | bash
+curl -sS get.pimoroni.com/drumhat | bash
 ```
 
 If you choose to download examples you'll find them in `/home/pi/Pimoroni/drumhat`, but you can also check out the examples for Drum HAT in: [examples](examples)
