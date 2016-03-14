@@ -11,13 +11,10 @@ DRUM_FOLDER = "drums2"
 print("""This example lets you play the drums with Drum HAT!
 
 Pads are mapped like so:
-4 3 2
-5 7 1
- 6 0
 
-4 = Rim hit, 3 = Whistle, 2 = Clash
-5 = Hat, 7 = Clap, 1 = Cowbell
-6 = Snare, 0 = Base
+7 = Rim hit, 1 = Whistle, 2 = Clash
+6 = Hat,     8 = Clap,   3 = Cowbell
+      5 = Snare,   4 = Base
 
 Press CTRL+C to exit!
 """)
@@ -33,16 +30,16 @@ files.sort()
 samples = [pygame.mixer.Sound(f) for f in files]
 
 def handle_hit(event):
+    # event.channel is a zero based channel index for each pad
+    # event.pad is the pad number from 1 to 8
     samples[event.channel].play(loops=0)
-    print("You hit channel {}, playing: {}".format(event.channel,files[event.channel]))
+    print("You hit pad {}, playing: {}".format(event.pad,files[event.channel]))
 
 def handle_release():
     pass
 
-for x in range(8):
-    drumhat.on_hit(x, handle_hit)
-    drumhat.on_release(x, handle_release)
+drumhat.on_hit(drumhat.PADS, handle_hit)
+drumhat.on_release(drumhat.PADS, handle_release)
  
 while True:
     time.sleep(1)
-
