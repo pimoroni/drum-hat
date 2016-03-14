@@ -13,7 +13,7 @@ We've created a super-easy installation script that will install all pre-requisi
 In the new terminal window type the following and follow the instructions:
 
 ```bash
-curl -sSL get.pimoroni.com/drumhat | bash
+curl -sS get.pimoroni.com/drumhat | bash
 ```
 
 If you've never enabled i2c before, you should then reboot your Pi.
