@@ -23,7 +23,7 @@ _on_press = [None] * 8
 _on_release = [None] * 8
 
 def on_hit(pad, handler=None):
-    global _on_presss
+    global _on_press
 
     if type(pad) == list:
         for ch in pad:
