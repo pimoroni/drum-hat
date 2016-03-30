@@ -1,3 +1,7 @@
+0.0.3
+
+* Python 3 fix, thanks @lurch
+
 0.0.2
 
 * Fixed function calls, made library actually work
