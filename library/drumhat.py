@@ -7,7 +7,7 @@ dh = cap1xxx.Cap1188(
 
 auto_leds = True
 
-PADS = range(1,9)
+PADS = list(range(1,9))
 
 LEDMAP = [
     5, 4, 3, 2,
