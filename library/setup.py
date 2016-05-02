@@ -34,7 +34,7 @@ classifiers = ['Development Status :: 5 - Production/Stable',
                'Topic :: System :: Hardware']
 
 setup(name		= 'DrumHAT',
-	version		= '0.0.3',
+	version		= '0.0.4',
 	author		= 'Philip Howard',
 	author_email	= 'phil@pimoroni.com',
 	description	= 'An 8 pad finger Drum HAT for your Raspberry Pi',
