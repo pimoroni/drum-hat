@@ -4,6 +4,8 @@
 * Finger-friendly drum pad layout
 * 8 under-mounted LEDs
 
+Learn more: https://shop.pimoroni.com/products/drum-hat
+
 # Installing Drum HAT
 
 We've created a super-easy installation script that will install all pre-requisites and get your Drum HAT up and running in a jiffy. To run it fire up Terminal which you'll find in Menu -> Accessories -> Terminal on your Raspberry Pi desktop like so:
