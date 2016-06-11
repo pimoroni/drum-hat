@@ -1,4 +1,4 @@
-# Drum HAT
+![Drum HAT](drum-hat-logo.png)
 
 * 8 Capacitive Touch Buttons
 * Finger-friendly drum pad layout
