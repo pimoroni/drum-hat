@@ -1,8 +1,10 @@
-# Drum HAT
+![Drum HAT](drum-hat-logo.png)
 
 * 8 Capacitive Touch Buttons
 * Finger-friendly drum pad layout
 * 8 under-mounted LEDs
+
+Learn more: https://shop.pimoroni.com/products/drum-hat
 
 # Installing Drum HAT
 
