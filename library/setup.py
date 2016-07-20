@@ -1,6 +1,7 @@
 #!/usr/bin/env python
+
 """
-Copyright (c) 2014 Pimoroni
+Copyright (c) 2015 Pimoroni
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
 the Software without restriction, including without limitation the rights to
@@ -33,16 +34,16 @@ classifiers = ['Development Status :: 5 - Production/Stable',
                'Topic :: Software Development',
                'Topic :: System :: Hardware']
 
-setup(name		= 'DrumHAT',
-	version		= '0.0.4',
-	author		= 'Philip Howard',
-	author_email	= 'phil@pimoroni.com',
-	description	= 'An 8 pad finger Drum HAT for your Raspberry Pi',
-	long_description= open('README.txt').read() + open('CHANGELOG.txt').read(),
-	license		= 'MIT',
-	keywords	= 'Raspberry Pi Drum HAT',
-	url		= 'http://shop.pimoroni.com',
-	classifiers     = classifiers,
-	py_modules	= ['drumhat'],
-	install_requires= ['cap1xxx']
+setup(name          = 'DrumHAT',
+    version         = '0.0.4',
+    author          = 'Philip Howard',
+    author_email    = 'phil@pimoroni.com',
+    description     = 'An 8 pad finger Drum HAT for your Raspberry Pi',
+    long_description= open('README.txt').read() + open('CHANGELOG.txt').read(),
+    license         = 'MIT',
+    keywords        = 'Raspberry Pi Drum HAT',
+    url             = 'http://shop.pimoroni.com',
+    classifiers     = classifiers,
+    py_modules      = ['drumhat'],
+    install_requires= ['cap1xxx']
 )
