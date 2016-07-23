@@ -1,10 +1,12 @@
 #!/usr/bin/env python
 
+try:
+    import pygame
+except ImportError:
+    exit("This script requires the pygame module\nInstall with: sudo pip install pygame")
+
 import drumhat
-import time
-import pygame
-import os
-import glob
+import time, os, glob
 
 DRUM_FOLDER = "drums2"
 

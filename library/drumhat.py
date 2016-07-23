@@ -1,4 +1,8 @@
-import cap1xxx
+try:
+    import cap1xxx
+except ImportError:
+    exit("This library requires the cap1xxx module\nInstall with: sudo pip install cap1xxx")
+
 import time
 
 dh = cap1xxx.Cap1188(
