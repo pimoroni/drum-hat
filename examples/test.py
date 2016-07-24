@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 
-import drumhat
 import time
+
+import drumhat
+
 
 def hit_handler(event):
     print("Hit on pad: {}".format(event.pad))
