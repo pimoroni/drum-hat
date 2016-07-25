@@ -1,10 +1,19 @@
 #!/usr/bin/env python
 
-import cap1xxx
-import time
-import pygame
-import os
 import glob
+import os
+import time
+
+try:
+    import pygame
+except ImportError:
+    exit("This script requires the pygame module\nInstall with: sudo pip install pygame")
+
+try:
+    import cap1xxx
+except ImportError:
+    exit("This script requires the cap1xxx module\nInstall with: sudo pip install cap1xxx")
+
 
 """
 
