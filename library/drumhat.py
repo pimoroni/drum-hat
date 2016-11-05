@@ -1,4 +1,5 @@
 import time
+from sys import exit
 
 try:
     import cap1xxx
