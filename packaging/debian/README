@@ -1,6 +1,6 @@
 README
 
-Drum HAT provides 8 finger-sized drum pads. Use it to play music in Python, control software drum synths on your Pi, take control of hardware drum machines, or just build it into an elaborate drum-controlled project. 
+DrumHAT provides 8 finger-sized drum pads. Use it to play music in Python, control software drum synths on your Pi, take control of hardware drum machines, or just build it into an elaborate drum-controlled project. 
 
 Learn more: https://shop.pimoroni.com/products/drum-hat
 For examples run: `curl -sS get.pimoroni.com/drumhat | bash`

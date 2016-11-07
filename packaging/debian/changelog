@@ -1,3 +1,11 @@
+drumhat (0.0.5) stable; urgency=low
+
+  * pep8 style tweaks
+  * Added docstrings
+  * Added __version__ to module
+
+ -- Phil Howard <phil@pimoroni.com>  Mon, 7 Nov 2016 00:00:00 +0000
+
 drumhat (0.0.4) UNRELEASED; urgency=low
 
   * Initial commit to Raspbian apt repository
