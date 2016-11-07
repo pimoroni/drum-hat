@@ -1,3 +1,10 @@
+0.0.5
+-----
+
+* pep8 style tweaks
+* Added docstrings
+* Added __version__ to module
+
 0.0.4
 -----
 
@@ -14,7 +21,6 @@
 * Fixed function calls, made library actually work
 
  
-
 0.0.1
 -----
 
