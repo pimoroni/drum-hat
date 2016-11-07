@@ -63,10 +63,10 @@ if [ -z "$libname" ]; then
     libname=$(echo "$libname" | tr "[A-Z]" "[a-z]") && cd "$debdir"
 fi
 
-if [ -n $(grep __version__ "$libdir/$libname.py" &> /dev/null) ]; then
+if grep -e "__version__" "$libdir/$libname.py" &> /dev/null; then
     sed -i "s/__version__ = '[0-9].[0-9].[0-9]/__version__ = '$version/" "$libdir/$libname.py"
     inform "touched up version in $(basename $libdir/$libname.py)"
-elif [ -n $(grep __version__ "$libdir/$libname/__init__.py" &> /dev/null) ]; then
+elif grep -e "__version__" "$libdir/$libname/__init__.py" &> /dev/null; then
     sed -i "s/__version__ = '[0-9].[0-9].[0-9]/__version__ = '$version/" "$libdir/$libname/__init__.py"
     inform "touched up version in $(basename $libdir/$libname/__init__.py)"
 elif [ "$vlibwarn" == "yes" ]; then
