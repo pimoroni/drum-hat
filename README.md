@@ -8,6 +8,8 @@ Learn more: https://shop.pimoroni.com/products/drum-hat
 
 # Installing Drum HAT
 
+**Full install ( recommended ):**
+
 We've created a super-easy installation script that will install all pre-requisites and get your Drum HAT up and running in a jiffy. To run it fire up Terminal which you'll find in Menu -> Accessories -> Terminal on your Raspberry Pi desktop like so:
 
 ![Finding the terminal](terminal.jpg)
@@ -15,12 +17,58 @@ We've created a super-easy installation script that will install all pre-requisi
 In the new terminal window type the following and follow the instructions:
 
 ```bash
-curl -sS get.pimoroni.com/drumhat | bash
+curl -sS https://get.pimoroni.com/drumhat | bash
 ```
 
-If you've never enabled i2c before, you should then reboot your Pi.
+If you choose to download examples you'll find them in `/home/pi/Pimoroni/drumhat/`.
 
-If you choose to download examples you'll find them in `/home/pi/Pimoroni/drumhat`, but you can also check out the examples for Drum HAT in: [examples](examples)
+**Library install for Python 3:**
+
+on Raspbian:
+
+```bash
+sudo apt-get install python3-drumhat
+```
+other environments: 
+
+```bash
+sudo pip3 install drumhat
+```
+
+**Library install for Python 2:**
+
+on Raspbian:
+
+```bash
+sudo apt-get install python-drumhat
+```
+other environments: 
+
+```bash
+sudo pip2 install drumhat
+```
+
+**Manual Install**
+
+You can install Drum HAT manually like so:
+
+```
+sudo apt-get install python-smbus
+git clone https://github.com/pimoroni/drum-hat
+cd drum-hat/library
+sudo python setup.py install
+```
+
+Or, for Python 3:
+
+```
+sudo apt-get install python3-smbus
+git clone https://github.com/pimoroni/drum-hat
+cd drum-hat/library
+sudo python3 setup.py install
+```
+
+In all cases you will have to enable the i2c bus.
 
 ## Using Drum HAT
 
@@ -61,25 +109,3 @@ You can optionally disable DrumHAT's automatic LED control like so:
 ```
 drumhat.auto_leds = False
 ```
-
-## Manual Install
-
-You can install Drum HAT manually like so:
-
-```
-sudo apt-get install python-smbus
-git clone https://github.com/pimoroni/drum-hat
-cd drum-hat/library
-sudo python setup.py install
-```
-
-Or, for Python 3:
-
-```
-sudo apt-get install python3-smbus
-git clone https://github.com/pimoroni/drum-hat
-cd drum-hat/library
-sudo python3 setup.py install
-```
-
-In both cases you will have to enable i2c in `raspi-config`.
