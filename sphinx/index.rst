@@ -23,8 +23,8 @@ At A Glance
 .. automoduleoutline:: drumhat
    :members:
 
-Turn Of All Lights
-------------------
+Turn Off All Lights
+-------------------
 
 .. automodule:: drumhat
    :noindex:
