@@ -13,6 +13,7 @@ This documentation will guide you through the methods available in the Drum HAT 
 Drum HAT is a musical Raspberry Pi add-on with 8 capacitive-touch drum pads.
 
 * More information - https://shop.pimoroni.com/products/drum-hat
+* GPIO Pinout - http://pinout.xyz/pinout/drum_hat
 * Get the code - https://github.com/pimoroni/drum-hat
 * Get help - http://forums.pimoroni.com/c/support
 
