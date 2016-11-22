@@ -70,6 +70,12 @@ sudo python3 setup.py install
 
 In all cases you will have to enable the i2c bus.
 
+## Documentation & Support
+
+* Function reference - http://docs.pimoroni.com/drumhat/
+* GPIO Pinout - https://pinout.xyz/pinout/drum_hat
+* Get help - http://forums.pimoroni.com/c/support
+
 ## Using Drum HAT
 
 The pads on Drum HAT are laid out like so:
