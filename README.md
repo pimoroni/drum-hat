@@ -77,5 +77,5 @@ In all cases you will have to enable the i2c bus.
 
 * Guides and tutorials - https://learn.pimoroni.com/drum-hat
 * Function reference - http://docs.pimoroni.com/drumhat/
-* GPIO Pinout - https://pinout.xyz/pinout/drumhat
+* GPIO Pinout - https://pinout.xyz/pinout/drum_hat
 * Get help - http://forums.pimoroni.com/c/support
