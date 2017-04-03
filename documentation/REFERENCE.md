@@ -1,4 +1,4 @@
-##Drum HAT Function Reference
+## Drum HAT Function Reference
 
 The pads on Drum HAT are laid out like so:
 
