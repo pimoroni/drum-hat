@@ -13,7 +13,7 @@ Architecture: all
 Section: python
 Depends: ${misc:Depends}, ${python:Depends}, python-cap1xxx
 Suggests: i2c-tools, python-pygame
-Description: python library designed to control Drum HAT.
+Description: Python library for the Pimoroni Drum HAT.
  Drum HAT provides 8 finger-sized drum pads.
  Use it to play music in Python, control software drum synths on your Pi,
  take control of hardware drum machines, or just build it into an elaborate
@@ -26,7 +26,7 @@ Architecture: all
 Section: python
 Depends: ${misc:Depends}, ${python3:Depends}, python3-cap1xxx
 Suggests: i2c-tools, python3-pygame
-Description: python library designed to control Drum HAT.
+Description: Python library for the Pimoroni Drum HAT.
  Drum HAT provides 8 finger-sized drum pads.
  Use it to play music in Python, control software drum synths on your Pi,
  take control of hardware drum machines, or just build it into an elaborate
