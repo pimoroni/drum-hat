@@ -38,7 +38,7 @@ def on_hit(pad, handler=None):
     """
     global _on_press
 
-    ensure_setup()
+    setup()
 
     if type(pad) == list:
         for ch in pad:
@@ -55,6 +55,7 @@ def on_hit(pad, handler=None):
             global _on_press
             _on_press[channel] = handler
         return decorate
+
     _on_press[channel] = handler 
 
 def on_release(pad, handler=None):
@@ -67,7 +68,7 @@ def on_release(pad, handler=None):
     """
     global _on_release
 
-    ensure_setup()
+    setup()
 
     if type(pad) == list:
         for ch in pad:
@@ -84,6 +85,7 @@ def on_release(pad, handler=None):
             global _on_release
             _on_release[channel] = handler
         return decorate
+
     _on_release[channel] = handler
 
 def _handle_press(event):
@@ -120,7 +122,7 @@ def led_on(pad):
     :param pad: A single integer from 0 to 7, corresponding to the pad whose LED you want to turn on.
     """
 
-    ensure_setup()
+    setup()
 
     idx = -1
 
@@ -135,7 +137,7 @@ def led_on(pad):
 def all_off():
     """Turn off all LEDs"""
 
-    ensure_setup()
+    setup()
 
     for pad in PADS:
         led_off(pad)
@@ -143,7 +145,7 @@ def all_off():
 def all_on():
     """Turn on all LEDs"""
 
-    ensure_setup()
+    setup()
 
     for pad in PADS:
         led_on(pad)
@@ -153,7 +155,7 @@ def led_off(pad):
 
     :param pad: A single integer from 0 to 7, corresponding to the pad whose LED you want to turn off.
     """
-    ensure_setup()
+    setup()
 
     idx = -1
 
@@ -165,16 +167,10 @@ def led_off(pad):
     led = LEDMAP[idx]
     dh.set_led_state(led, False)
 
-def ensure_setup():
-    setup()
-
 def setup():
-    global ensure_setup, dh
+    global dh
 
     if _is_setup:
-        raise RuntimeError("")
-
-    def ensure_setup():
         return True
 
     dh = cap1xxx.Cap1188(
