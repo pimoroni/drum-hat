@@ -4,13 +4,11 @@ from sys import exit
 try:
     import cap1xxx
 except ImportError:
-    exit("This library requires the cap1xxx module\nInstall with: sudo pip install cap1xxx")
+    raise ImportError("This library requires the cap1xxx module\nInstall with: sudo pip install cap1xxx")
 
 __version__ = '0.0.5'
 
-dh = cap1xxx.Cap1188(
-    i2c_addr=0x2c,
-    alert_pin=25)
+dh = None
 
 auto_leds = True
 
@@ -28,6 +26,7 @@ NUMMAP = [
 
 _on_press = [None] * 8
 _on_release = [None] * 8
+_is_setup = False
 
 def on_hit(pad, handler=None):
     """Register a function to be called when a pad or pads are hit.
@@ -38,6 +37,8 @@ def on_hit(pad, handler=None):
     :param handler: The handler function to call on hit
     """
     global _on_press
+
+    setup()
 
     if type(pad) == list:
         for ch in pad:
@@ -54,6 +55,7 @@ def on_hit(pad, handler=None):
             global _on_press
             _on_press[channel] = handler
         return decorate
+
     _on_press[channel] = handler 
 
 def on_release(pad, handler=None):
@@ -65,6 +67,8 @@ def on_release(pad, handler=None):
     :param handler: The handler function to call on release
     """
     global _on_release
+
+    setup()
 
     if type(pad) == list:
         for ch in pad:
@@ -81,6 +85,7 @@ def on_release(pad, handler=None):
             global _on_release
             _on_release[channel] = handler
         return decorate
+
     _on_release[channel] = handler
 
 def _handle_press(event):
@@ -116,6 +121,9 @@ def led_on(pad):
 
     :param pad: A single integer from 0 to 7, corresponding to the pad whose LED you want to turn on.
     """
+
+    setup()
+
     idx = -1
 
     try:
@@ -128,11 +136,17 @@ def led_on(pad):
 
 def all_off():
     """Turn off all LEDs"""
+
+    setup()
+
     for pad in PADS:
         led_off(pad)
 
 def all_on():
     """Turn on all LEDs"""
+
+    setup()
+
     for pad in PADS:
         led_on(pad)
 
@@ -141,6 +155,8 @@ def led_off(pad):
 
     :param pad: A single integer from 0 to 7, corresponding to the pad whose LED you want to turn off.
     """
+    setup()
+
     idx = -1
 
     try:
@@ -151,9 +167,22 @@ def led_off(pad):
     led = LEDMAP[idx]
     dh.set_led_state(led, False)
 
-for x in range(8):
-    dh.on(x,event='press',   handler=_handle_press)
-    dh.on(x,event='release', handler=_handle_release)
+def setup():
+    global dh, _is_setup
 
-"""Unlink the LEDs since Drum HAT's LEDs don't match up with the channels"""
-dh._write_byte(cap1xxx.R_LED_LINKING, 0b00000000)
+    if _is_setup:
+        return True
+
+    dh = cap1xxx.Cap1188(
+        i2c_addr=0x2c,
+        alert_pin=25)
+
+    for x in range(8):
+        dh.on(x,event='press',   handler=_handle_press)
+        dh.on(x,event='release', handler=_handle_release)
+
+    """Unlink the LEDs since Drum HAT's LEDs don't match up with the channels"""
+    dh._write_byte(cap1xxx.R_LED_LINKING, 0b00000000)
+
+    _is_setup = True
+
