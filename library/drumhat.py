@@ -168,7 +168,7 @@ def led_off(pad):
     dh.set_led_state(led, False)
 
 def setup():
-    global dh
+    global dh, _is_setup
 
     if _is_setup:
         return True
@@ -183,4 +183,6 @@ def setup():
 
     """Unlink the LEDs since Drum HAT's LEDs don't match up with the channels"""
     dh._write_byte(cap1xxx.R_LED_LINKING, 0b00000000)
+
+    _is_setup = True
 
