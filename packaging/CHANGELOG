@@ -1,3 +1,9 @@
+drumhat (0.1.0) stable; urgency=low
+
+  * BugFix: Defer import side-effects
+
+ -- Phil Howard <phil@pimoroni.com>  Tue, 20 Feb 2018 00:00:00 +0000
+
 drumhat (0.0.5) stable; urgency=low
 
   * pep8 style tweaks

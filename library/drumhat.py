@@ -6,7 +6,7 @@ try:
 except ImportError:
     raise ImportError("This library requires the cap1xxx module\nInstall with: sudo pip install cap1xxx")
 
-__version__ = '0.0.5'
+__version__ = '0.1.0'
 
 dh = None
 
